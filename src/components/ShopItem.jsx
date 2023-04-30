@@ -1,11 +1,16 @@
 import { Button, Card } from "react-bootstrap";
 // import { useShoppingCart } from "../context/ShoppingCartContext";
 // import { formatCurrency } from "../utilities/formatCurrency";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../features/cart/cartSlice"
 
 
 
-export function ShopItem({ name, price, imgUrl }) {
-  const quantity = 1;
+export function ShopItem({ id, name, price, imgUrl }) {
+  const dispatch = useDispatch()
+  // const quantity = useSelector(store => store.cart.cart.find(item => item.id === id)) || 0;
+  const quantity = 0;
+  console.log("quantity", quantity)
   return (
     <Card className="h-100">
       <Card.Img
@@ -21,7 +26,7 @@ export function ShopItem({ name, price, imgUrl }) {
         </Card.Title>
         <div className="mt-auto">
           {quantity === 0 ? (
-            <Button className="w-100">+ Add To Cart</Button>
+            <Button className="w-100" onClick={()=> dispatch(addToCart({id, name, imgUrl, price} ))}>+ Add To Cart</Button>
           ) : (
             <div
               className="d-flex align-items-center flex-column"
