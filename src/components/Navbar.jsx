@@ -16,6 +16,7 @@ const Navbar = () => {
   const show = useSelector((state) => state.offCanvas.open);
   const cartItems = useSelector(state => state.cart.cart)
   const totalQuantity = useSelector(state => state.cart.totalQuantity)
+  const totalPrice = useSelector(state => state.cart.totalPrice)
 
   useEffect(() => {
     dispatch(calculateTotals())
@@ -65,7 +66,6 @@ const Navbar = () => {
             {totalQuantity}
           </div>
         </Button>
-        {/* <ShoppingCart /> */}
 
         <Offcanvas
           show={show}
@@ -73,11 +73,10 @@ const Navbar = () => {
           placement="end"
         >
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+            <Offcanvas.Title>Cart</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            Some text as placeholder. In real life you can have the elements you
-            have chosen. Like, text, images, lists, etc.
+            Total: {totalPrice ? totalPrice : 0}€
           </Offcanvas.Body>
         </Offcanvas>
 
