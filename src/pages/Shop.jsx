@@ -1,7 +1,6 @@
 import shopItems from "../data/items.json";
 import { Col, Row } from "react-bootstrap";
 import { ShopItem } from "../components/ShopItem";
-import ShoppingCart from "../components/ShoppingCart";
 
 const Shop = () => {
   return (
@@ -14,7 +13,6 @@ const Shop = () => {
           </Col>
         ))}
       </Row>
-      <ShoppingCart />
     </>
   );
 };

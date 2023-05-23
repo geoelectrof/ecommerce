@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import ShoppingCart from "./ShoppingCart";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import {
