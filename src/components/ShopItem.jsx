@@ -2,7 +2,7 @@ import { Button, Card } from "react-bootstrap";
 // import { useShoppingCart } from "../context/ShoppingCartContext";
 // import { formatCurrency } from "../utilities/formatCurrency";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../features/cart/cartSlice"
+import { addToCart, increase, decrease, removeFromCart } from "../features/cart/cartSlice"
 
 
 
@@ -42,13 +42,13 @@ export function ShopItem({ id, name, price, imgUrl }) {
                 className="d-flex align-items-center justify-content-center"
                 style={{ gap: ".5rem" }}
               >
-                <Button>-</Button>
+                <Button onClick={()=>dispatch(decrease(id))}>-</Button>
                 <div>
                   <span className="fs-3">{quantity}</span> in cart
                 </div>
-                <Button>+</Button>
+                <Button onClick={()=>dispatch(increase(id))}>+</Button>
               </div>
-              <Button variant="danger" size="sm">
+              <Button variant="danger" size="sm" onClick={()=>dispatch(removeFromCart(id))}>
                 Remove
               </Button>
             </div>
