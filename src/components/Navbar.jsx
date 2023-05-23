@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Container, Nav, Navbar as NavbarBs } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -8,20 +7,13 @@ import {
   closeOffCanvas,
 } from "../features/offCanvas/offCanvasSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { calculateTotals } from "../features/cart/cartSlice";
 
 const Navbar = () => {
 
   const dispatch = useDispatch();
   const show = useSelector((state) => state.offCanvas.open);
-  const cartItems = useSelector(state => state.cart.cart)
   const totalQuantity = useSelector(state => state.cart.totalQuantity)
   const totalPrice = useSelector(state => state.cart.totalPrice)
-
-  useEffect(() => {
-    dispatch(calculateTotals())
-  }, [cartItems])
-  
 
   return (
     <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
