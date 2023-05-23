@@ -8,9 +8,15 @@ import { addToCart } from "../features/cart/cartSlice"
 
 export function ShopItem({ id, name, price, imgUrl }) {
   const dispatch = useDispatch()
-  // const quantity = useSelector(store => store.cart.cart.find(item => item.id === id)) || 0;
-  const quantity = 0;
-  console.log("quantity", quantity)
+  const item = useSelector(store => store.cart.cart.find(item => item.id === id));
+  let quantity
+  if (item) {
+    quantity = item.quantity
+  } else {
+    quantity = 0
+  }
+  // const quantity = 0;
+  // console.log("quantity", item.quantity)
   return (
     <Card className="h-100">
       <Card.Img

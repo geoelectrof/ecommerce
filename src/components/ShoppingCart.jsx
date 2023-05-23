@@ -1,27 +1,10 @@
-// import { Offcanvas } from "react-bootstrap"
-
-// const ShoppingCart = () => {
-//   return (
-//     <Offcanvas show={true}>
-//         <Offcanvas.Header closeButton>
-//             <Offcanvas.Title>Cart</Offcanvas.Title>
-//         </Offcanvas.Header>
-//     </Offcanvas>>
-//   )
-// }
-
-// export default ShoppingCart
-import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { useDispatch, useSelector } from "react-redux";
 import { openOffCanvas, closeOffCanvas } from "../features/offCanvas/offCanvasSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const ShoppingCart = () => {
-  // const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const dispatch = useDispatch()
   const show = useSelector(state => state.offCanvas.open)
